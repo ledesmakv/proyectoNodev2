@@ -13,35 +13,47 @@
         <!-- Barra de navegación -->
 
         <header>
+
+            <!-- Logo -->
+
             <a href="/" class="logoContainer">
                 <img src="../img/logo.png" alt="Main page">
             </a>
             
+            <!-- Botones -->
+
             <nav>
                 <div class="menuBtn">
-                    QUICK PEEK
+                    <button class="button">QUICK PEEK</button>
                 </div>
                 <div class="menuBtn">
-                    I'M NOOB, WHO SHOULD I PICK?
+                    <button class="button">QUICK PICK</button>
                 </div>
             </nav>
+
         </header>
 
-        <!-- Botón que trae la tabla de todos los survivors -->
+        <!-- Botones principales: survivors / killers -->
 
-        <section class="survivors">
-            <h3>The survivors</h3>
-            <button id="survivorsBtn" class="survivorsBtn">SURVIVORS</button>
-            <div class="survivorsContainer" id="survivorsContainer"></div>
-        </section>
+        <div class="characters">
 
-        <!-- Botón que trae toda la tabla de los killers -->
+            <!-- Botón que trae la tabla de todos los survivors -->
 
-        <section class="killers">
-            <h3>The killers</h3>
-            <button id="killersBtn" class="killersBtn">KILLERS</button>
-            <div class="killersContainer"id="killersContainer"></div>
-        </section>
+            <div class="survivorsOption">
+                <button id="survivorsBtn" class="survivorsBtn">SURVIVORS</button>
+                <div class="survivorsContainer" id="survivorsContainer"></div>
+            </div>
+
+            <!-- Botón que trae toda la tabla de los killers -->
+
+            <div class="killersOption">
+                <button id="killersBtn" class="killersBtn">KILLERS</button>
+                <div class="killersContainer"id="killersContainer"></div>
+            </div>
+
+        </div>
+
+        <!-- Scripts -->
 
         <script src="../script/ajax.js"></script>
         <script src="../script/script.js"></script>

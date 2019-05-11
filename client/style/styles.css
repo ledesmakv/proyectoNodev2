@@ -5,12 +5,15 @@
 
 body, html {
     height: 100%;
-    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 body {
     background-image: url("../img/background.jpg");
-    background-size: 100vw;
+    background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: #000000;
@@ -18,13 +21,28 @@ body {
 
 header {
     height: 10vh;
-    /* background-color: #9e14b1; */
+    background-color: #000000;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 header .logoContainer img {
     height: 10vh;
     width: auto;
     /* background-color: aqua; */
+}
+
+header nav .menuBtn {
+    display: inline-block;
+}
+
+header nav div .button {
+    background-color: #940707;
+    height: 10vh;
+    padding: 20px;
+    border-style: none;
+}
+
+.characters {
+    display: flex;
 }
