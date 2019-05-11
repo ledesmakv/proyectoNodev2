@@ -1,4 +1,30 @@
-h1 {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-image: url("../img/background.jpg");
+    background-size: 100vw;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     background-color: #000000;
-    color: #ff0000;
+}
+
+header {
+    height: 10vh;
+    /* background-color: #9e14b1; */
+    display: flex;
+    justify-content: space-around;
+}
+
+header .logoContainer img {
+    height: 10vh;
+    width: auto;
+    /* background-color: aqua; */
 }
