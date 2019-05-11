@@ -123,7 +123,7 @@
         "difficulty": "INTERMEDIATE",
         "description": "A resourceful Teacher, able to adapt to new circumstances and develop strategies accordingly.",
         "perks": ["DIVERSION", "DELIVERANCE", "AUTODIDACT"],
-        "image": "../img/survivor/adam.png"
+        "image": "../img/survivor/francis.png"
     },
     {
         "id": 15,
