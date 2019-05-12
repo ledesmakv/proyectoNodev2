@@ -1,7 +1,29 @@
-// TOGGLE PARA LOS BOTONES
+// BOTONES BARRA DE NAVEGACIÓN
 
-function hideButton() {
-    
+function openTab(evt, tabName) {
+    // Declaro las variables
+    var i, tabcontent, tablinks;
+
+    // Selecciono todos los elementos con la clase 'button' y los escondo
+    tabcontent = document.getElementsByClassName("buttonContent");
+
+    for (i = 0; i < tabcontent.length; i++) {
+
+        tabcontent[i].style.display = "none";
+
+    }
+
+    // Selecciono todos los elem. con la clase 'buttonLink' y los muestro
+    tablinks = document.getElementsByClassName("buttonLink");
+
+    for (i = 0; i < tablinks.length; i++) {
+
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
 
 
@@ -40,7 +62,7 @@ function crearBotonesSurvivors (datos) {
 
 function crearBotonSurvivors(nombreSurvivor, imagenSurvivor) {
 
-    // Se crea el div
+    // Se crea el div o tarjeta de cada personaje
     let divSurvivor = document.createElement('div');
     divSurvivor.setAttribute('class', "boton-survivor");
 

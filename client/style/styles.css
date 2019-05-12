@@ -39,11 +39,16 @@ header .logoContainer img {
 
 /* BOTONES DEL NAV */
 
+nav {
+    overflow: hidden;
+
+}
+
 header nav .menuBtn {
     display: inline-block;
 }
 
-header nav div .button {
+header nav div .buttonLink {
     background-color: #000000;
     color: #ff6c28;
     height: 10vh;
@@ -54,23 +59,44 @@ header nav div .button {
     opacity: 0.6;
 }
 
-header nav div .button:hover {
+header nav div .buttonLink:hover {
     border-bottom: 2px solid #ff6c28;
+    opacity: 1;
+    cursor: pointer;
+}
+
+header nav div .buttonLink:active {
+    outline: none;
+}
+
+header nav div .active {
+    border-bottom: 2px solid #ff6c28;
+    outline: none;
     opacity: 1;
 }
 
 /* CONTENEDOR (PRINCIPAL) DE BOTONES Y TABLAS */
 
-.characters {
+.buttonContent {
     display: flex;
     justify-content: center;
     height: 550px;
     margin-top: 6px;
+    animation: fadeEffect 0.4s;
 }
 
-/* OPCIONES (BOTONES) EN LA TABLA PRINCIPAL */
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
-.characters .survivorsOption, .killersOption {
+/* OPCIONES DE QUICK PEEK DE LOS BOTONES SURVIVOR/KILLER */
+
+.buttonContent .survivorsOption, .killersOption {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -78,7 +104,7 @@ header nav div .button:hover {
     background-color: #00000025;
 }
 
-.characters .bigBtn {
+.buttonContent .bigBtn {
     background-color: #ff6c28;
     /* padding: 0 50%;
     margin: 50px; */
@@ -89,14 +115,15 @@ header nav div .button:hover {
     border-radius: 5px;
 }
 
-.characters .bigBtn:hover {
+.buttonContent .bigBtn:hover {
     opacity: 1;
     transition: 0.15s;
+    cursor: pointer;
 }
 
-/* SE AJUSTAN LOS DIVS PARA QUE QUEDEN EN DOS TABLAS DIFERENTES */
+/* SE AJUSTAN LOS DIVS PARA QUE QUEDEN DENTRO DE UNA TABLA */
 
-.characters #survivorsContainer, #killersContainer {
+.buttonContent #survivorsContainer, #killersContainer {
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-content: space-around;

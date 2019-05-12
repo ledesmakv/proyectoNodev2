@@ -24,22 +24,50 @@
             <!-- Botones -->
 
             <nav>
+
+                <!-- QUICK GUIDE -->
                 <div class="menuBtn">
-                    <button id="quick-guide-btn" class="button">QUICK GUIDE</button>
+                    <button id="quick-guide-btn" class="buttonLink" onclick="openTab(event, 'contenido-primer-boton')">QUICK GUIDE</button>
                 </div>
+
+                <!-- QUICK PEEK -->
                 <div class="menuBtn">
-                    <button id="quick-peek-btn" class="button">QUICK PEEK</button>
+                    <button id="quick-peek-btn" class="buttonLink" onclick="openTab(event, 'contenido-segundo-boton')">QUICK PEEK</button>
                 </div>
+
+                <!-- QUICK PICK -->
                 <div class="menuBtn">
-                    <button id="quick-pick-btn" class="button">QUICK PICK</button>
+                    <button id="quick-pick-btn" class="buttonLink" onclick="openTab(event, 'contenido-tercer-boton')">QUICK PICK</button>
                 </div>
+                
             </nav>
 
         </header>
 
-        <!-- Tabla principal: survivors / killers -->
+        <!-- 1° BOTÓN -> Trae los botones tipo acordeón con la info. -->
 
-        <div class="characters">
+        <div id="contenido-primer-boton" class="buttonContent">
+
+            <button class="accordion">Dead by Daylight for dummies</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
+
+            <button class="accordion">Items</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
+
+            <button class="accordion">Offerings</button>
+            <div class="panel">
+                <p>Lorem ipsum...</p>
+            </div>
+
+        </div>
+
+        <!-- 2° BOTÓN -> Trae la tabla principal: survivors / killers -->
+
+        <div id="contenido-segundo-boton" class="buttonContent">
 
             <!-- Botón que trae la tabla de todos los survivors -->
 
@@ -57,6 +85,12 @@
                 <div class="killersContainer" id="killersContainer"></div>
             </div>
 
+        </div>
+
+        <!-- 3° BOTÓN -> Trae las preguntas que van a filtrar a los personajes -->
+
+        <div id="contenido-tercer-boton" class="buttonContent">
+            <h2>Choose your play style</h2>
         </div>
 
         <!-- Scripts -->
