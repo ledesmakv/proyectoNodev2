@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
 
+const controller = require("./controller");
 // las cosas que el cliente pida, bodyParser las transforma en un JSON
 app.use(bodyParser.json());
 
@@ -17,6 +18,8 @@ app.get('/', (req, res) => {
 
 // indico ruta del archivo a parsear, el parámetro 'data' hace referencia al archivo JSON
 
+app.get('/killers', controller.getKillersFiltrados);
+
 app.get('/survivors', (req, res) => {
     fs.readFile(path.join(__dirname, '../data/survivors.json'), (err, data) => {
         if (err == undefined) {
@@ -24,26 +27,43 @@ app.get('/survivors', (req, res) => {
             res.send(jsonSurvivors);
         }
     })
+});
+
+app.get("/killers", (req, res) => {
+    console.log("estoy en la ruta")
+    if(req.query !== undefined){
+        controller.getFilterKiller(req.query.type, dataCompleta =>{
+            res.send(JSON.stringify(dataCompleta))
+            console.log(dataCompleta);
+        })
+    } else {
+        res.status(200).end();
+    }
 })
 
-app.get('/killers', (req, res) => {
-    fs.readFile(path.join(__dirname, '../data/Killers.json'), (err, data) => {
+app.get('/killer-perks', (req, res) => {
+    fs.readFile(path.join(__dirname, '../data/KillerPerks.json'), (err, data) => {
         if (err == undefined) {
-            let jsonKillers = JSON.parse(data);
-            res.send(jsonKillers);
+            let jsonKillerPerks = JSON.parse(data);
+            res.send(jsonKillerPerks);
         }
-    });
+    })
 })
-
-// app.get('/killers', (req, res) => {
-
-// })
 
 app.get('/items', (req, res) => {
     fs.readFile(path.join(__dirname, '../data/Items.json'), (err, data) => {
         if (err == undefined) {
             let jsonItems = JSON.parse(data);
             res.send(jsonItems);
+        }
+    })
+})
+
+app.get('/powers', (req, res) => {
+    fs.readFile(path.join(__dirname, '../data/Powers.json'), (err, data) => {
+        if (err == undefined) {
+            let jsonPowers = JSON.parse(data);
+            res.send(jsonPowers);
         }
     })
 })
@@ -62,24 +82,6 @@ app.get('/killer-offerings', (req, res) => {
         if (err == undefined) {
             let jsonKillerOfferings = JSON.parse(data);
             res.send(jsonKillerOfferings);
-        }
-    })
-})
-
-app.get('/killer-perks', (req, res) => {
-    fs.readFile(path.join(__dirname, '../data/KillerPerks.json'), (err, data) => {
-        if (err == undefined) {
-            let jsonKillerPerks = JSON.parse(data);
-            res.send(jsonKillerPerks);
-        }
-    })
-})
-
-app.get('/powers', (req, res) => {
-    fs.readFile(path.join(__dirname, '../data/Powers.json'), (err, data) => {
-        if (err == undefined) {
-            let jsonPowers = JSON.parse(data);
-            res.send(jsonPowers);
         }
     })
 })
@@ -119,6 +121,8 @@ app.get('/survivor-perks', (req, res) => {
         }
     })
 })
+
+
 
 // escuchamos el puerto
 app.listen(3000, () => {
