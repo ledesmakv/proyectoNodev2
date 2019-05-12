@@ -1,3 +1,10 @@
+// TOGGLE PARA LOS BOTONES
+
+function hideButton() {
+    
+}
+
+
 //////////////////////////////////////////////
 //          CONTENEDOR DE SURVIVORS         //
 //////////////////////////////////////////////
@@ -33,21 +40,29 @@ function crearBotonesSurvivors (datos) {
 
 function crearBotonSurvivors(nombreSurvivor, imagenSurvivor) {
 
+    // Se crea el div
     let divSurvivor = document.createElement('div');
-
     divSurvivor.setAttribute('class', "boton-survivor");
 
+    // Se crea el div con el nombre
+    let divNombreDeSurvivor = document.createElement('div');
+    divNombreDeSurvivor.setAttribute('class', "nombre-de-survivor");
     let texto = document.createTextNode(nombreSurvivor);
 
-    divSurvivor.appendChild(texto);
+    // Metemos el texto dentro del div
+    divNombreDeSurvivor.appendChild(texto);
+    divSurvivor.appendChild(divNombreDeSurvivor);
     contenedorSurvivors.appendChild(divSurvivor);
 
+    // Creamos la imagen para cada survivor
     let dirImgSurvivor = document.createElement('img');
 
+    // Le asignamos una clase a cada una
     dirImgSurvivor.setAttribute('class', "imgSurvivor");
     dirImgSurvivor.setAttribute('src', imagenSurvivor);
     dirImgSurvivor.setAttribute('alt', nombreSurvivor);
 
+    // Metemos las imágenes en nuestro contenedor
     contenedorSurvivors.appendChild(dirImgSurvivor);
 
 }
@@ -88,21 +103,39 @@ function crearBotonesKillers (datos) {
 
 function crearBotonKiller(nombreKiller, imagenKiller) {
 
+    // Se crea el div
     let divKiller = document.createElement('div');
-
     divKiller.setAttribute('class', "boton-killer");
 
+    // Se crea el div con el
+    let divNombreDeKiller = document.createElement('div');
+    divNombreDeKiller.setAttribute('class', "nombre-de-killer");
     let texto = document.createTextNode(nombreKiller);
 
+    //Metemos el texto dentro del div
     divKiller.appendChild(texto);
     contenedorKillers.appendChild(divKiller);
 
+    // Creamos una imagen para cada killer
     let dirImgKiller = document.createElement('img');
     
+    // Le asignamos una clase a la misma
     dirImgKiller.setAttribute('class', "imgKiller");
     dirImgKiller.setAttribute('src', imagenKiller);
     dirImgKiller.setAttribute('alt', nombreKiller);
 
+    // Metemos las imágenes en nuestro container
     contenedorKillers.appendChild(dirImgKiller);
 
 }
+
+
+//////////////////////////////////
+//          QUICK PICK          //
+//////////////////////////////////
+
+const pickBtn = document.getElementById('quick-pick-btn');
+
+pickBtn.addEventListener('click', () => {
+    console.log('working :v');
+})

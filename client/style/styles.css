@@ -1,11 +1,15 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 body, html {
     height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
+
+/* FONDO DE PANTALLA */
 
 body {
     background-image: url("../img/background.jpg");
@@ -15,6 +19,8 @@ body {
     background-color: #000000;
 }
 
+/* BARRA DE NAVEGACIÓN */
+
 header {
     height: 10vh;
     background-color: #000000;
@@ -22,23 +28,76 @@ header {
     justify-content: space-between;
 }
 
+/* LOGO */
+
 header .logoContainer img {
     height: 10vh;
     width: auto;
+    margin: 0 20px;
     /* background-color: aqua; */
 }
+
+/* BOTONES DEL NAV */
 
 header nav .menuBtn {
     display: inline-block;
 }
 
 header nav div .button {
-    background-color: #940707;
+    background-color: #000000;
+    color: #ff6c28;
     height: 10vh;
     padding: 20px;
     border-style: none;
+    font-size: 24px;
+    transition: 0.10s;
+    opacity: 0.6;
 }
+
+header nav div .button:hover {
+    border-bottom: 2px solid #ff6c28;
+    opacity: 1;
+}
+
+/* CONTENEDOR (PRINCIPAL) DE BOTONES Y TABLAS */
 
 .characters {
     display: flex;
+    justify-content: center;
+    height: 550px;
+    margin-top: 6px;
+}
+
+/* OPCIONES (BOTONES) EN LA TABLA PRINCIPAL */
+
+.characters .survivorsOption, .killersOption {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #00000025;
+}
+
+.characters .bigBtn {
+    background-color: #ff6c28;
+    /* padding: 0 50%;
+    margin: 50px; */
+    font-size: 70px;
+    border-style: none;
+    width: 99%;
+    opacity: 0.5;
+    border-radius: 5px;
+}
+
+.characters .bigBtn:hover {
+    opacity: 1;
+    transition: 0.15s;
+}
+
+/* SE AJUSTAN LOS DIVS PARA QUE QUEDEN EN DOS TABLAS DIFERENTES */
+
+.characters #survivorsContainer, #killersContainer {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
 }

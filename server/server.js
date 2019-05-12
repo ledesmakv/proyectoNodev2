@@ -16,6 +16,29 @@ app.get('/', (req, res) => {
 })
 
 // indico ruta del archivo a parsear, el parámetro 'data' hace referencia al archivo JSON
+
+app.get('/survivors', (req, res) => {
+    fs.readFile(path.join(__dirname, '../data/survivors.json'), (err, data) => {
+        if (err == undefined) {
+            let jsonSurvivors = JSON.parse(data);
+            res.send(jsonSurvivors);
+        }
+    })
+})
+
+app.get('/killers', (req, res) => {
+    fs.readFile(path.join(__dirname, '../data/Killers.json'), (err, data) => {
+        if (err == undefined) {
+            let jsonKillers = JSON.parse(data);
+            res.send(jsonKillers);
+        }
+    });
+})
+
+// app.get('/killers', (req, res) => {
+
+// })
+
 app.get('/items', (req, res) => {
     fs.readFile(path.join(__dirname, '../data/Items.json'), (err, data) => {
         if (err == undefined) {
@@ -50,15 +73,6 @@ app.get('/killer-perks', (req, res) => {
             res.send(jsonKillerPerks);
         }
     })
-})
-
-app.get('/killers', (req, res) => {
-    fs.readFile(path.join(__dirname, '../data/Killers.json'), (err, data) => {
-        if (err == undefined) {
-            let jsonKillers = JSON.parse(data);
-            res.send(jsonKillers);
-        }
-    });
 })
 
 app.get('/powers', (req, res) => {
@@ -102,15 +116,6 @@ app.get('/survivor-perks', (req, res) => {
         if (err == undefined) {
             let jsonSurvivorPerks = JSON.parse(data);
             res.send(jsonSurvivorPerks);
-        }
-    })
-})
-
-app.get('/survivors', (req, res) => {
-    fs.readFile(path.join(__dirname, '../data/survivors.json'), (err, data) => {
-        if (err == undefined) {
-            let jsonSurvivors = JSON.parse(data);
-            res.send(jsonSurvivors);
         }
     })
 })

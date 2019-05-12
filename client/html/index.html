@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../style/styles.css">
         <title>Proyecto Node</title>
     </head>
@@ -24,31 +25,36 @@
 
             <nav>
                 <div class="menuBtn">
-                    <button class="button">QUICK PEEK</button>
+                    <button id="quick-guide-btn" class="button">QUICK GUIDE</button>
                 </div>
                 <div class="menuBtn">
-                    <button class="button">QUICK PICK</button>
+                    <button id="quick-peek-btn" class="button">QUICK PEEK</button>
+                </div>
+                <div class="menuBtn">
+                    <button id="quick-pick-btn" class="button">QUICK PICK</button>
                 </div>
             </nav>
 
         </header>
 
-        <!-- Botones principales: survivors / killers -->
+        <!-- Tabla principal: survivors / killers -->
 
         <div class="characters">
 
             <!-- Botón que trae la tabla de todos los survivors -->
 
             <div class="survivorsOption">
-                <button id="survivorsBtn" class="survivorsBtn">SURVIVORS</button>
+                <button onclick="hideButton()" id="survivorsBtn" class="bigBtn">SURVIVORS</button>
+                <!-- Container con cada personaje -->
                 <div class="survivorsContainer" id="survivorsContainer"></div>
             </div>
 
-            <!-- Botón que trae toda la tabla de los killers -->
+            <!-- Botón que trae la tabla de todos los killers -->
 
             <div class="killersOption">
-                <button id="killersBtn" class="killersBtn">KILLERS</button>
-                <div class="killersContainer"id="killersContainer"></div>
+                <button onclick="hideButton()" id="killersBtn" class="bigBtn">KILLERS</button>
+                <!-- Container con cada personaje -->
+                <div class="killersContainer" id="killersContainer"></div>
             </div>
 
         </div>
