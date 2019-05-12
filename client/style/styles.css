@@ -75,7 +75,51 @@ header nav div .active {
     opacity: 1;
 }
 
-/* CONTENEDOR (PRINCIPAL) DE BOTONES Y TABLAS */
+/****************************/
+/* 1° BOTÓN --> QUICK GUIDE */
+/****************************/
+
+/* Contenedor de los botones desplegables */
+
+div .buttonContent {
+    display: flex;
+    justify-content: center;
+}
+
+/* Botones desplegables */
+
+div .boton-desplegable {
+    background-color: #000000;
+    color: #ff6c28;
+    height: 10vh;
+    width: 99%;
+    margin: 0 6px;
+    padding: 20px;
+    font-size: 24px;
+    border-style: none;
+    outline: none;
+    text-align: left;
+    transition: 0.4s;
+}
+
+div .boton-desplegable:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+div .boton-desplegable:active {
+    outline: none;
+}
+
+div .texto-desplegable {
+    display: none;
+}
+
+/****************************/
+/* 2° BOTÓN --> QUICK PEEK  */
+/****************************/
+
+/* CONTENEDOR Y ESTILADO (PRINCIPAL) DE BOTONES Y TABLAS */
 
 .buttonContent {
     display: flex;

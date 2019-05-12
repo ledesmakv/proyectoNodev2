@@ -1,4 +1,4 @@
-// BOTONES BARRA DE NAVEGACIÓN
+// BOTONES QUE ANIMAN LA BARRA DE NAVEGACIÓN
 
 function openTab(evt, tabName) {
     // Declaro las variables
@@ -25,6 +25,10 @@ function openTab(evt, tabName) {
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+// BOTONES QUE SE DESPLIEGAN
+
+
 
 
 //////////////////////////////////////////////
