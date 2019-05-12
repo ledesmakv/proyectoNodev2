@@ -24,3 +24,16 @@ function pedirTodosLosSurvivors(callback) {
     request.open('GET', "/survivors");
     request.send();
 }
+
+function pedirKillersFiltrados(type, filter, callback) {
+    let request = new XMLHttpRequest();
+
+    request.onload = () => {
+        let killersParseados = JSON.parse(request.responseText);
+
+        console.log(killersParseados);
+    }
+
+    request.open('GET', '/killers?type=' + type + '&filter=' + filter);
+    request.send();
+}
