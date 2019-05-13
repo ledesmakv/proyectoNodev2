@@ -26,9 +26,36 @@ function openTab(evt, tabName) {
     evt.currentTarget.className += " active";
 }
 
-// BOTONES QUE SE DESPLIEGAN
+// FUNCIÓN PARA LOS BOTONES QUE SE DESPLIEGAN (ACORDEON)
 
 
+// Guardamos nuestro botón en una variable
+var acc = document.getElementsByClassName("boton-desplegable");
+var i;
+
+// Iteramos
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function expandirBoton() {
+
+        /* Toggle between adding and removing the "active" class,
+        to highlight the button that controls the panel */
+        this.classList.toggle("active");
+
+        /* Toggle between hiding and showing the active panel */
+        var textoDesplegable = this.nextElementSibling;
+        
+        if (textoDesplegable.style.display === "block") {
+
+            textoDesplegable.style.display = "none";
+
+        } else {
+
+            textoDesplegable.style.display = "block";
+
+        }
+
+    });
+}
 
 
 //////////////////////////////////////////////
@@ -53,6 +80,7 @@ miBotonSurvivors.addEventListener('click', () => {
 function crearBotonesSurvivors (datos) {
 
     let arrayDeSurvivors = datos;
+    survivorsContainer.innerHTML = "";
 
     for (let i = 0; i < arrayDeSurvivors.length; i++) {
 
@@ -65,6 +93,7 @@ function crearBotonesSurvivors (datos) {
 // Creamos un div para cada survivor junto con el nombre y la imagen
 
 function crearBotonSurvivors(nombreSurvivor, imagenSurvivor) {
+    
 
     // Se crea el div o tarjeta de cada personaje
     let divSurvivor = document.createElement('div');
@@ -116,6 +145,7 @@ miBoton.addEventListener('click', () => {
 function crearBotonesKillers (datos) {
 
     let arrayDeKillers = datos;
+    killersContainer.innerHTML = "";
 
     for (let i = 0; i < arrayDeKillers.length; i++) {
 
