@@ -77,6 +77,17 @@ function crearBotonSurvivors(nombreSurvivor, imagenSurvivor) {
   // Se crea el div o tarjeta de cada personaje
   let divSurvivor = document.createElement("div");
   divSurvivor.setAttribute("class", "boton-survivor");
+  
+    // Creamos la imagen para cada survivor
+    let dirImgSurvivor = document.createElement("img");
+  
+    // Le asignamos una clase a cada una
+    dirImgSurvivor.setAttribute("class", "imgSurvivor");
+    dirImgSurvivor.setAttribute("src", imagenSurvivor);
+    dirImgSurvivor.setAttribute("alt", nombreSurvivor);
+  
+    // Metemos las imágenes en nuestro contenedor
+    contenedorSurvivors.appendChild(dirImgSurvivor);
 
   // Se crea el div con el nombre
   let divNombreDeSurvivor = document.createElement("div");
@@ -87,17 +98,6 @@ function crearBotonSurvivors(nombreSurvivor, imagenSurvivor) {
   divNombreDeSurvivor.appendChild(texto);
   divSurvivor.appendChild(divNombreDeSurvivor);
   contenedorSurvivors.appendChild(divSurvivor);
-
-  // Creamos la imagen para cada survivor
-  let dirImgSurvivor = document.createElement("img");
-
-  // Le asignamos una clase a cada una
-  dirImgSurvivor.setAttribute("class", "imgSurvivor");
-  dirImgSurvivor.setAttribute("src", imagenSurvivor);
-  dirImgSurvivor.setAttribute("alt", nombreSurvivor);
-
-  // Metemos las imágenes en nuestro contenedor
-  contenedorSurvivors.appendChild(dirImgSurvivor);
 }
 
 //////////////////////////////////////////////
@@ -105,7 +105,7 @@ function crearBotonSurvivors(nombreSurvivor, imagenSurvivor) {
 //////////////////////////////////////////////
 
 // Guardamos nuestros elementos en variables
-
+// REFERENCIAS
 let miBotonKillers = document.getElementById("killersBtn");
 const contenedorKillers = document.getElementById("killersContainer");
 
@@ -133,16 +133,7 @@ function personajeKiller(nombreKiller, imagenKiller) {
   // Se crea el div
   let divKiller = document.createElement("div");
   divKiller.setAttribute("class", "boton-killer");
-
-  // Se crea el div con el
-  let divNombreDeKiller = document.createElement("div");
-  divNombreDeKiller.setAttribute("class", "nombre-de-killer");
-  let texto = document.createTextNode(nombreKiller);
-
-  //Metemos el texto dentro del div
-  divKiller.appendChild(texto);
-  contenedorKillers.appendChild(divKiller);
-
+  
   // Creamos una imagen para cada killer
   let dirImgKiller = document.createElement("img");
 
@@ -153,6 +144,15 @@ function personajeKiller(nombreKiller, imagenKiller) {
 
   // Metemos las imágenes en nuestro container
   contenedorKillers.appendChild(dirImgKiller);
+  
+  // Se crea el div con el nombre
+  let divNombreDeKiller = document.createElement("div");
+  divNombreDeKiller.setAttribute("class", "nombre-de-killer");
+  let texto = document.createTextNode(nombreKiller);
+  
+  //Metemos el texto dentro del div
+  divKiller.appendChild(texto);
+  contenedorKillers.appendChild(divKiller);
 }
 
 //////////////////////////////////////////////
