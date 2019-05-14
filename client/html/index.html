@@ -25,42 +25,42 @@
       <!-- Botones -->
 
       <nav>
-        <!-- QUICK GUIDE -->
+        <!-- OBJECTIVE & ITEMS -->
         <div class="menuBtn">
           <button
             id="quick-guide-btn"
             class="buttonLink"
             onclick="openTab(event, 'contenido-primer-boton')"
           >
-            QUICK GUIDE
+            OBJECTIVE & ITEMS
           </button>
         </div>
 
-        <!-- QUICK PEEK -->
+        <!-- CHARACTERS -->
         <div class="menuBtn">
           <button
             id="quick-peek-btn"
             class="buttonLink"
             onclick="openTab(event, 'contenido-segundo-boton')"
           >
-            QUICK PEEK
+            CHARACTERS
           </button>
         </div>
 
-        <!-- QUICK PICK -->
+        <!-- CHOOSE A PLAYSTYLE -->
         <div class="menuBtn">
           <button
             id="quick-pick-btn"
             class="buttonLink"
             onclick="openTab(event, 'contenido-tercer-boton')"
           >
-            QUICK PICK
+            CHOOSE A PLAYSTYLE
           </button>
         </div>
       </nav>
     </header>
 
-    <!-- 1° PESTAÑA (QUICK GUIDE) -> Trae los botones tipo acordeón con la info. -->
+    <!-- 1° PESTAÑA (OBJECTIVE & ITEMS) -> Trae los botones tipo acordeón con la info. -->
 
     <div id="contenido-primer-boton" class="buttonContent">
       <button class="boton-desplegable">
@@ -87,7 +87,7 @@
       <div id="offeringsContainer" class="textoDesplegable">
       </div>
     </div>
-    <!-- 2° PESTAÑA (QUICK PEEK) -> Trae la tabla principal: survivors / killers -->
+    <!-- 2° PESTAÑA (CHARACTERS) -> Trae la tabla principal: survivors / killers -->
 
     <div id="contenido-segundo-boton" class="buttonContent">
       <!-- Botón que trae la tabla de todos los survivors -->
@@ -119,7 +119,7 @@
       </div>
     </div>
 
-    <!-- 3° PESTAÑA (QUICK PICK) -> Trae las preguntas que van a filtrar a los personajes -->
+    <!-- 3° PESTAÑA (CHOOSE A PLAYSTYLE) -> Trae los botones que van a filtrar a los personajes -->
 
     <div id="contenido-tercer-boton" class="buttonContent">
       <h2>KILLER RECOMENDADO PARA VOS</h2>
@@ -133,7 +133,6 @@
 
       <div id="resultado-tipo-killers"></div>
     </div>
-    <!--  -->
 
     <!-- Scripts -->
 
