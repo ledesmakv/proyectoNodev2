@@ -1,110 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../style/styles.css">
-        <title>Proyecto Node</title>
-    </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../style/styles.css" />
+    <title>Proyecto Node</title>
+  </head>
 
-    <body>
+  <body>
+    <!-- Barra de navegación -->
 
-        <!-- Barra de navegación -->
+    <header>
+      <!-- Logo -->
 
-        <header>
+      <a href="/" class="logoContainer">
+        <img src="../img/logo.png" alt="Main page" />
+      </a>
 
-            <!-- Logo -->
+      <!-- Botones -->
 
-            <a href="/" class="logoContainer">
-                <img src="../img/logo.png" alt="Main page">
-            </a>
-            
-            <!-- Botones -->
-
-            <nav>
-
-                <!-- QUICK GUIDE -->
-                <div class="menuBtn">
-                    <button id="quick-guide-btn" class="buttonLink" onclick="openTab(event, 'contenido-primer-boton')">QUICK GUIDE</button>
-                </div>
-
-                <!-- QUICK PEEK -->
-                <div class="menuBtn">
-                    <button id="quick-peek-btn" class="buttonLink" onclick="openTab(event, 'contenido-segundo-boton')">QUICK PEEK</button>
-                </div>
-
-                <!-- QUICK PICK -->
-                <div class="menuBtn">
-                    <button id="quick-pick-btn" class="buttonLink" onclick="openTab(event, 'contenido-tercer-boton')">QUICK PICK</button>
-                </div>
-
-            </nav>
-
-        </header>
-
-        <!-- 1° PESTAÑA (QUICK GUIDE) -> Trae los botones tipo acordeón con la info. -->
-
-        <div id="contenido-primer-boton" class="buttonContent">
-
-            <button onclick="expandirBoton()" class="boton-desplegable">Dead by Daylight for dummies</button>
-            <div class="textoDesplegable">
-                <h2 class="subtitulo">ABOUT DEAD BY DAYLIGHT</h2>
-                <p class="parrafo">Juego de supervivencia que o te hace cagar todo o hace que rompas tu pc a patadas de la bronca porque siempre te puede llegar a tocar el pibito de 12 años que no sabe jugar y te campea</p>
-            </div>
-
-            <button onclick="expandirBoton()" class="boton-desplegable">Items</button>
-            <div class="textoDesplegable">
-                <h2 class="subtitulo"></h2>
-                <p class="parrafo">Lorem ipsum...</p>
-            </div>
-
-            <button onclick="expandirBoton()" class="boton-desplegable">Offerings</button>
-            <div class="textoDesplegable">
-                <h2 class="subtitulo"></h2>
-                <p class="parrafo">Lorem ipsum...</p>
-            </div>
-
+      <nav>
+        <!-- QUICK GUIDE -->
+        <div class="menuBtn">
+          <button
+            id="quick-guide-btn"
+            class="buttonLink"
+            onclick="openTab(event, 'contenido-primer-boton')"
+          >
+            QUICK GUIDE
+          </button>
         </div>
 
-        <!-- 2° PESTAÑA (QUICK PEEK) -> Trae la tabla principal: survivors / killers -->
-
-        <div id="contenido-segundo-boton" class="buttonContent">
-
-            <!-- Botón que trae la tabla de todos los survivors -->
-
-            <div class="survivorsOption">
-                <button onclick="hideButton()" id="survivorsBtn" class="bigBtn">SURVIVORS</button>
-                <!-- Container con cada personaje -->
-                <div class="survivorsContainer" id="survivorsContainer"></div>
-            </div>
-
-            <!-- Botón que trae la tabla de todos los killers -->
-
-            <div class="killersOption">
-                <button onclick="hideButton()" id="killersBtn" class="bigBtn">KILLERS</button>
-                <!-- Container con cada personaje -->
-                <div class="killersContainer" id="killersContainer"></div>
-            </div>
-
+        <!-- QUICK PEEK -->
+        <div class="menuBtn">
+          <button
+            id="quick-peek-btn"
+            class="buttonLink"
+            onclick="openTab(event, 'contenido-segundo-boton')"
+          >
+            QUICK PEEK
+          </button>
         </div>
 
-        <!-- 3° PESTAÑA (QUICK PICK) -> Trae las preguntas que van a filtrar a los personajes -->
-
-        <div id="contenido-tercer-boton" class="buttonContent">
-            <h2>KILLER RECOMENDADO PARA VOS</h2>
-            <div class="preguntas">
-                <h2>Que tipo de asesino te gusta mas</h2>
-                
-            </div>
-
-            in
+        <!-- QUICK PICK -->
+        <div class="menuBtn">
+          <button
+            id="quick-pick-btn"
+            class="buttonLink"
+            onclick="openTab(event, 'contenido-tercer-boton')"
+          >
+            QUICK PICK
+          </button>
         </div>
+      </nav>
+    </header>
 
-        <!-- Scripts -->
+    <!-- 1° PESTAÑA (QUICK GUIDE) -> Trae los botones tipo acordeón con la info. -->
 
-        <script src="../script/ajax.js"></script>
-        <script src="../script/script.js"></script>
-    </body>
+    <div id="contenido-primer-boton" class="buttonContent">
+      <button class="boton-desplegable">
+        Dead by Daylight for dummies
+      </button>
+      <div class="textoDesplegable">
+        <h2 class="subtitulo">ABOUT DEAD BY DAYLIGHT</h2>
+        <p class="parrafo">
+          Juego de supervivencia que o te hace cagar todo o hace que rompas tu
+          pc a patadas de la bronca porque siempre te puede llegar a tocar el
+          pibito de 12 años que no sabe jugar y te campea
+        </p>
+      </div>
+
+      <button id="itemsBtn" class="boton-desplegable">Items</button>
+      <div id="itemsContainer" class="textoDesplegable">
+        <h2 class="subtitulo"></h2>
+        <p class="parrafo">Lorem ipsum...</p>
+      </div>
+
+      <button class="boton-desplegable">
+        Offerings
+      </button>
+      <div class="textoDesplegable">
+        <h2 class="subtitulo"></h2>
+        <p class="parrafo">Lorem ipsum...</p>
+      </div>
+    </div>
+
+    <!-- 2° PESTAÑA (QUICK PEEK) -> Trae la tabla principal: survivors / killers -->
+
+    <div id="contenido-segundo-boton" class="buttonContent">
+      <!-- Botón que trae la tabla de todos los survivors -->
+
+      <div class="survivorsOption">
+        <button
+          onclick="expandirBoton()"
+          id="survivorsBtn"
+          class="boton-desplegable"
+        >
+          SURVIVORS
+        </button>
+        <!-- Container con cada personaje -->
+        <div class="survivorsContainer" id="survivorsContainer"></div>
+      </div>
+
+      <!-- Botón que trae la tabla de todos los killers -->
+
+      <div class="killersOption">
+        <button
+          onclick="expandirBoton()"
+          id="killersBtn"
+          class="boton-desplegable"
+        >
+          KILLERS
+        </button>
+        <!-- Container con cada personaje -->
+        <div class="killersContainer" id="killersContainer"></div>
+      </div>
+    </div>
+
+    <!-- 3° PESTAÑA (QUICK PICK) -> Trae las preguntas que van a filtrar a los personajes -->
+
+    <div id="contenido-tercer-boton" class="buttonContent">
+      <h2>KILLER RECOMENDADO PARA VOS</h2>
+      <div class="preguntas">
+        <h2>Que tipo de asesino te gusta mas</h2>
+      </div>
+
+      in
+    </div>
+
+    <!-- Scripts -->
+
+    <script src="../script/ajax.js"></script>
+    <script src="../script/script.js"></script>
+  </body>
 </html>

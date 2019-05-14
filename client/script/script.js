@@ -1,197 +1,221 @@
 // BOTONES QUE ANIMAN LA BARRA DE NAVEGACIÓN
 
 function openTab(evt, tabName) {
-    // Declaro las variables
-    var i, tabcontent, tablinks;
+  // Declaro las variables
+  var i, tabcontent, tablinks;
 
-    // Selecciono todos los elementos con la clase 'button' y los escondo
-    tabcontent = document.getElementsByClassName("buttonContent");
+  // Selecciono todos los elementos con la clase 'button' y los escondo
+  tabcontent = document.getElementsByClassName("buttonContent");
 
-    for (i = 0; i < tabcontent.length; i++) {
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
 
-        tabcontent[i].style.display = "none";
+  // Selecciono todos los elem. con la clase 'buttonLink' y los muestro
+  tablinks = document.getElementsByClassName("buttonLink");
 
-    }
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
 
-    // Selecciono todos los elem. con la clase 'buttonLink' y los muestro
-    tablinks = document.getElementsByClassName("buttonLink");
-
-    for (i = 0; i < tablinks.length; i++) {
-
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-
-    }
-
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
 }
 
 // FUNCIÓN PARA LOS BOTONES QUE SE DESPLIEGAN (ACORDEON)
 
-
-// Guardamos nuestro botón en una variable
+// Guardamos nuestros botones en una variable
 var acc = document.getElementsByClassName("boton-desplegable");
 var i;
 
 // Iteramos
 for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener('click', function expandirBoton() {
-
-        /* Toggle between adding and removing the "active" class,
+  acc[i].addEventListener("click", function expandirBoton() {
+    /* Toggle between adding and removing the "active" class,
         to highlight the button that controls the panel */
-        this.classList.toggle("active");
+    this.classList.toggle("active");
 
-        /* Toggle between hiding and showing the active panel */
-        var textoDesplegable = this.nextElementSibling;
-        
-        if (textoDesplegable.style.display === "block") {
+    /* Toggle between hiding and showing the active panel */
+    var textoDesplegable = this.nextElementSibling;
 
-            textoDesplegable.style.display = "none";
-
-        } else {
-
-            textoDesplegable.style.display = "block";
-
-        }
-
-    });
+    if (textoDesplegable.style.display === "block") {
+      textoDesplegable.style.display = "none";
+    } else {
+      textoDesplegable.style.display = "block";
+    }
+  });
 }
-
 
 //////////////////////////////////////////////
 //          CONTENEDOR DE SURVIVORS         //
 //////////////////////////////////////////////
 
-
 // Guardamos nuestros elementos en variables
-
-let miBotonSurvivors = document.getElementById('survivorsBtn');
-const contenedorSurvivors = document.getElementById('survivorsContainer');
-
+// REFERENCIAS
+let miBotonSurvivors = document.getElementById("survivorsBtn");
+const contenedorSurvivors = document.getElementById("survivorsContainer");
 
 // Añadimos un evento el cual nos trae los datos y creamos el botón que contiene al grupo
+// EVENT
+miBotonSurvivors.addEventListener("click", () => {
+  pedirTodosLosSurvivors(crearBotonesSurvivors);
+});
 
-miBotonSurvivors.addEventListener('click', () => {
+// DOM Manipulation = Recibo datos y los meto en el HTML
+function crearBotonesSurvivors(datos) {
+  let arrayDeSurvivors = datos;
+  survivorsContainer.innerHTML = "";
 
-    pedirTodosLosSurvivors(crearBotonesSurvivors);
-
-})
-
-function crearBotonesSurvivors (datos) {
-
-    let arrayDeSurvivors = datos;
-    survivorsContainer.innerHTML = "";
-
-    for (let i = 0; i < arrayDeSurvivors.length; i++) {
-
-        crearBotonSurvivors(arrayDeSurvivors[i].name, arrayDeSurvivors[i].image);
-
-    }
+  for (let i = 0; i < arrayDeSurvivors.length; i++) {
+    crearBotonSurvivors(arrayDeSurvivors[i].name, arrayDeSurvivors[i].image);
+  }
 }
-
 
 // Creamos un div para cada survivor junto con el nombre y la imagen
-
+// DOM Manipulation = Recibo datos y los meto en el HTML
 function crearBotonSurvivors(nombreSurvivor, imagenSurvivor) {
-    
+  // Se crea el div o tarjeta de cada personaje
+  let divSurvivor = document.createElement("div");
+  divSurvivor.setAttribute("class", "boton-survivor");
 
-    // Se crea el div o tarjeta de cada personaje
-    let divSurvivor = document.createElement('div');
-    divSurvivor.setAttribute('class', "boton-survivor");
+  // Se crea el div con el nombre
+  let divNombreDeSurvivor = document.createElement("div");
+  divNombreDeSurvivor.setAttribute("class", "nombre-de-survivor");
+  let texto = document.createTextNode(nombreSurvivor);
 
-    // Se crea el div con el nombre
-    let divNombreDeSurvivor = document.createElement('div');
-    divNombreDeSurvivor.setAttribute('class', "nombre-de-survivor");
-    let texto = document.createTextNode(nombreSurvivor);
+  // Metemos el texto dentro del div
+  divNombreDeSurvivor.appendChild(texto);
+  divSurvivor.appendChild(divNombreDeSurvivor);
+  contenedorSurvivors.appendChild(divSurvivor);
 
-    // Metemos el texto dentro del div
-    divNombreDeSurvivor.appendChild(texto);
-    divSurvivor.appendChild(divNombreDeSurvivor);
-    contenedorSurvivors.appendChild(divSurvivor);
+  // Creamos la imagen para cada survivor
+  let dirImgSurvivor = document.createElement("img");
 
-    // Creamos la imagen para cada survivor
-    let dirImgSurvivor = document.createElement('img');
+  // Le asignamos una clase a cada una
+  dirImgSurvivor.setAttribute("class", "imgSurvivor");
+  dirImgSurvivor.setAttribute("src", imagenSurvivor);
+  dirImgSurvivor.setAttribute("alt", nombreSurvivor);
 
-    // Le asignamos una clase a cada una
-    dirImgSurvivor.setAttribute('class', "imgSurvivor");
-    dirImgSurvivor.setAttribute('src', imagenSurvivor);
-    dirImgSurvivor.setAttribute('alt', nombreSurvivor);
-
-    // Metemos las imágenes en nuestro contenedor
-    contenedorSurvivors.appendChild(dirImgSurvivor);
-
+  // Metemos las imágenes en nuestro contenedor
+  contenedorSurvivors.appendChild(dirImgSurvivor);
 }
-
 
 //////////////////////////////////////////////
 //          CONTENEDOR DE KILLERS           //
 //////////////////////////////////////////////
 
+// Guardamos nuestros elementos en variables
+
+let miBotonKillers = document.getElementById("killersBtn");
+const contenedorKillers = document.getElementById("killersContainer");
+
+// Añadimos un evento el cual nos trae los datos y creamos el botón que contiene al grupo
+// Events = Todo lo relacionado a listeners, eventos, hooks y demas
+miBotonKillers.addEventListener("click", () => {
+  pedirTodosLosKillers(crearBotonesKillers);
+});
+
+// DOM Manipulation = Recibo datos y los meto en el HTML
+function crearBotonesKillers(datos) {
+  let arrayDeKillers = datos;
+  killersContainer.innerHTML = "";
+
+  for (let i = 0; i < arrayDeKillers.length; i++) {
+    personajeKiller(arrayDeKillers[i].name, arrayDeKillers[i].image);
+  }
+}
+
+// DOM Manipulation = Recibo datos y los meto en el HTML
+// Creamos un div para cada survivor junto con el nombre y la imagen
+
+function personajeKiller(nombreKiller, imagenKiller) {
+  // Se crea el div
+  let divKiller = document.createElement("div");
+  divKiller.setAttribute("class", "boton-killer");
+
+  // Se crea el div con el
+  let divNombreDeKiller = document.createElement("div");
+  divNombreDeKiller.setAttribute("class", "nombre-de-killer");
+  let texto = document.createTextNode(nombreKiller);
+
+  //Metemos el texto dentro del div
+  divKiller.appendChild(texto);
+  contenedorKillers.appendChild(divKiller);
+
+  // Creamos una imagen para cada killer
+  let dirImgKiller = document.createElement("img");
+
+  // Le asignamos una clase a la misma
+  dirImgKiller.setAttribute("class", "imgKiller");
+  dirImgKiller.setAttribute("src", imagenKiller);
+  dirImgKiller.setAttribute("alt", nombreKiller);
+
+  // Metemos las imágenes en nuestro container
+  contenedorKillers.appendChild(dirImgKiller);
+}
+
+//////////////////////////////////////////////
+//          CONTENEDOR DE ITEMS             //
+//////////////////////////////////////////////
 
 // Guardamos nuestros elementos en variables
 
-let miBoton = document.getElementById('killersBtn');
-const contenedorKillers = document.getElementById('killersContainer');
-
+let miBotonItems = document.getElementById("itemsBtn");
+const contenedorItems = document.getElementById("itemsContainer");
 
 // Añadimos un evento el cual nos trae los datos y creamos el botón que contiene al grupo
+// Events = Todo lo relacionado a listeners, eventos, hooks y demas
+miBotonItems.addEventListener("click", () => {
+  pedirTodosLosItems(crearBotonesItems);
+});
 
-miBoton.addEventListener('click', () => {
+// DOM Manipulation = Recibo datos y los meto en el HTML
+function crearBotonesItems(datos) {
+  let arrayDeItems = datos;
+  itemsContainer.innerHTML = "";
 
-    pedirTodosLosKillers(crearBotonesKillers);
-
-})
-
-function crearBotonesKillers (datos) {
-
-    let arrayDeKillers = datos;
-    killersContainer.innerHTML = "";
-
-    for (let i = 0; i < arrayDeKillers.length; i++) {
-
-        crearBotonKiller(arrayDeKillers[i].name, arrayDeKillers[i].image);
-
-    }
+  for (let i = 0; i < arrayDeItems.length; i++) {
+    cajaItem(arrayDeItems[i].name, arrayDeItems[i].image);
+  }
 }
 
-
+// DOM Manipulation = Recibo datos y los meto en el HTML
 // Creamos un div para cada survivor junto con el nombre y la imagen
 
-function crearBotonKiller(nombreKiller, imagenKiller) {
+// I wanna see every move
 
-    // Se crea el div
-    let divKiller = document.createElement('div');
-    divKiller.setAttribute('class', "boton-killer");
+function cajaItem(nombreItem, imagenItem) {
+  // Se crea el div
+  let divItem = document.createElement("div");
+  divItem.setAttribute("class", "boton-item");
 
-    // Se crea el div con el
-    let divNombreDeKiller = document.createElement('div');
-    divNombreDeKiller.setAttribute('class', "nombre-de-killer");
-    let texto = document.createTextNode(nombreKiller);
+  // Se crea el div con el
+  let divNombreDeItem = document.createElement("div");
+  divNombreDeItem.setAttribute("class", "nombre-de-item");
+  let texto = document.createTextNode(nombreItem);
 
-    //Metemos el texto dentro del div
-    divKiller.appendChild(texto);
-    contenedorKillers.appendChild(divKiller);
+  //Metemos el texto dentro del div
+  divItem.appendChild(texto);
+  contenedorItems.appendChild(divItem);
 
-    // Creamos una imagen para cada killer
-    let dirImgKiller = document.createElement('img');
-    
-    // Le asignamos una clase a la misma
-    dirImgKiller.setAttribute('class', "imgKiller");
-    dirImgKiller.setAttribute('src', imagenKiller);
-    dirImgKiller.setAttribute('alt', nombreKiller);
+  // Creamos una imagen para cada killer
+  let dirImgItem = document.createElement("img");
 
-    // Metemos las imágenes en nuestro container
-    contenedorKillers.appendChild(dirImgKiller);
+  // Le asignamos una clase a la misma
+  dirImgItem.setAttribute("class", "imgItem");
+  dirImgItem.setAttribute("src", imagenItem);
+  dirImgItem.setAttribute("alt", nombreItem);
 
+  // Metemos las imágenes en nuestro container
+  contenedorItems.appendChild(dirImgItem);
 }
 
+// //////////////////////////////////
+// //          QUICK PICK          //
+// //////////////////////////////////
 
-//////////////////////////////////
-//          QUICK PICK          //
-//////////////////////////////////
+// const pickBtn = document.getElementById("quick-pick-btn");
 
-const pickBtn = document.getElementById('quick-pick-btn');
-
-pickBtn.addEventListener('click', () => {
-    console.log('working :v');
-})
+// pickBtn.addEventListener("click", () => {
+//   console.log("working :v");
+// });

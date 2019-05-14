@@ -1,78 +1,78 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Roboto', sans-serif;
+body,
+html {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
 }
 
 /* FONDO DE PANTALLA */
 
 body {
-    background-image: url("../img/background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: #000000;
+  background-image: url("../img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #000000;
 }
 
 /* BARRA DE NAVEGACIÓN */
 
 header {
-    height: 10vh;
-    background-color: #000000;
-    display: flex;
-    justify-content: space-between;
+  height: 10vh;
+  background-color: #000000;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* LOGO */
 
 header .logoContainer img {
-    height: 10vh;
-    width: auto;
-    margin: 0 20px;
-    /* background-color: aqua; */
+  height: 10vh;
+  width: auto;
+  margin: 0 20px;
+  /* background-color: aqua; */
 }
 
 /* BOTONES DEL NAV */
 
 nav {
-    overflow: hidden;
-
+  overflow: hidden;
 }
 
 header nav .menuBtn {
-    display: inline-block;
+  display: inline-block;
 }
 
 header nav div .buttonLink {
-    background-color: #000000;
-    color: #ff6c28;
-    height: 10vh;
-    padding: 20px;
-    border-style: none;
-    font-size: 24px;
-    transition: 0.10s;
-    opacity: 0.6;
+  background-color: #000000;
+  color: #ff6c28;
+  height: 10vh;
+  padding: 20px;
+  border-style: none;
+  font-size: 24px;
+  transition: 0.1s;
+  opacity: 0.6;
 }
 
 header nav div .buttonLink:hover {
-    border-bottom: 2px solid #ff6c28;
-    opacity: 1;
-    cursor: pointer;
+  border-bottom: 2px solid #ff6c28;
+  opacity: 1;
+  cursor: pointer;
 }
 
 header nav div .buttonLink:active {
-    outline: none;
+  outline: none;
 }
 
 header nav div .active {
-    border-bottom: 2px solid #ff6c28;
-    outline: none;
-    opacity: 1;
+  border-bottom: 2px solid #ff6c28;
+  outline: none;
+  opacity: 1;
 }
 
 /****************************/
@@ -82,43 +82,43 @@ header nav div .active {
 /* Contenedor de los botones desplegables */
 
 div .buttonContent {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 /* Botones desplegables */
 
 div .boton-desplegable {
-    background-color: #000000;
-    color: #ff6c28;
-    height: 10vh;
-    width: 99%;
-    margin: 0 6px;
-    padding: 20px;
-    font-size: 24px;
-    border-style: none;
-    outline: none;
-    text-align: left;
+  background-color: #000000;
+  color: #ff6c28;
+  height: 10vh;
+  width: 99%;
+  margin: 0 6px;
+  padding: 20px;
+  font-size: 24px;
+  border-style: none;
+  outline: none;
+  text-align: left;
 }
 
 div .boton-desplegable:hover {
-    opacity: 1;
-    cursor: pointer;
+  opacity: 1;
+  cursor: pointer;
 }
 
 div .boton-desplegable:active {
-    outline: none;
+  outline: none;
 }
 
 div .textoDesplegable {
-    display: none;
-    background-color: #00000080;
-    color: #ffffff;
-    height: auto;
-    width: 95%;
-    margin: 0 6px;
-    padding: 20px;
-    font-size: 14px;
+  display: none;
+  background-color: #00000080;
+  color: #ffffff;
+  height: auto;
+  width: 95%;
+  margin: 0 6px;
+  padding: 20px;
+  font-size: 14px;
 }
 
 /****************************/
@@ -128,55 +128,56 @@ div .textoDesplegable {
 /* CONTENEDOR Y ESTILADO (PRINCIPAL) DE BOTONES Y TABLAS */
 
 .buttonContent {
-    display: flex;
-    width: 100%;
-    height: 550px;
-    margin-top: 6px;
-    animation: fadeEffect 0.4s;
+  display: flex;
+  width: 100%;
+  /* height: 550px; */
+  margin-top: 6px;
+  animation: fadeEffect 0.4s;
 }
 
 @keyframes fadeEffect {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* OPCIONES DE QUICK PEEK DE LOS BOTONES SURVIVOR/KILLER */
 
 .buttonContent .survivorsOption {
-    background-color: yellow;
-    width: 100%;
+  background-color: yellow;
+  width: 100%;
 }
 
 .buttonContent .killersOption {
-    background-color: lawngreen;
-    width: 100%;
+  background-color: lawngreen;
+  width: 100%;
 }
 
 .buttonContent .bigBtn {
-    background-color: #ff6c28;
-    /* padding: 0 50%;
-    margin: 50px; */
-    font-size: 70px;
-    border-style: none;
-    width: 99%;
-    opacity: 0.5;
-    border-radius: 5px;
+  background-color: #ff6c28;
+  /* padding: 0 50%;
+      margin: 50px; */
+  font-size: 70px;
+  border-style: none;
+  width: 99%;
+  opacity: 0.5;
+  border-radius: 5px;
 }
 
 .buttonContent .bigBtn:hover {
-    opacity: 1;
-    transition: 0.15s;
-    cursor: pointer;
+  opacity: 1;
+  transition: 0.15s;
+  cursor: pointer;
 }
 
 /* SE AJUSTAN LOS DIVS PARA QUE QUEDEN DENTRO DE UNA TABLA */
 
-.buttonContent #survivorsContainer, #killersContainer {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    justify-content: space-around;
+.buttonContent #survivorsContainer,
+#killersContainer {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  justify-content: space-around;
 }
