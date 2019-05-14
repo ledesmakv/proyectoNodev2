@@ -1,20 +1,22 @@
 let fs = require("fs");
 let path = require("path");
 
-function getFilterKiller(paramType, succes){
+function getFilterKiller(paramType, success){
     fs.readFile(path.join(__dirname, "../data/Killers.json"), function(err, data){
         if(err == undefined){
             let todosLosKillers = JSON.parse(data);
 
-            let killersFiltrados = todosLosKillers.filter(obj =>{
-                obj.type.filter(tipo => { tipo == paramType})
-            })
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+            //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+            let killersFiltrados = todosLosKillers.filter(killer => killer.type.includes(paramType))
 
             console.log(killersFiltrados);
-            succes.send(killersFiltrados);
+            success(killersFiltrados);
         }
     })
 }
+
+// filter = for / forEach (programación funcional)
 
 function getKillersFiltrados(req, res){
     if(!req.query.type){

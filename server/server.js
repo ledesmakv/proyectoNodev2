@@ -14,11 +14,9 @@ app.use(express.static(path.join(__dirname, '../client')));
 // le indicamos la ruta raíz
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/html/index.html'));
-})
+});
 
 // indico ruta del archivo a parsear, el parámetro 'data' hace referencia al archivo JSON
-
-app.get('/killers', controller.getKillersFiltrados);
 
 app.get('/survivors', (req, res) => {
     fs.readFile(path.join(__dirname, '../data/survivors.json'), (err, data) => {
@@ -30,16 +28,22 @@ app.get('/survivors', (req, res) => {
 });
 
 app.get("/killers", (req, res) => {
-    console.log("estoy en la ruta")
-    if(req.query !== undefined){
+    if(Object.keys(req.query).length !== 0){
+        console.log('SOY LA PARTE 1')
         controller.getFilterKiller(req.query.type, dataCompleta =>{
             res.send(JSON.stringify(dataCompleta))
             console.log(dataCompleta);
         })
     } else {
-        res.status(200).end();
+        console.log('SOY LA PARTE 2')
+        fs.readFile(path.join(__dirname, '../data/Killers.json'), (err, data) => {
+            if (err == undefined) {
+                let jsonKillers = JSON.parse(data);
+                res.send(jsonKillers);
+            }
+        })
     }
-})
+});
 
 app.get('/killer-perks', (req, res) => {
     fs.readFile(path.join(__dirname, '../data/KillerPerks.json'), (err, data) => {

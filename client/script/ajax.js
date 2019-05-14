@@ -1,4 +1,4 @@
-// Trame todos los killers
+// Traeme todos los killers
 function pedirTodosLosKillers(callback) {
   let request = new XMLHttpRequest();
 
@@ -10,8 +10,6 @@ function pedirTodosLosKillers(callback) {
   request.open("GET", "/killers");
   request.send();
 }
-
-//
 
 // Traeme todos los survivors
 function pedirTodosLosSurvivors(callback) {
@@ -53,19 +51,21 @@ function pedirTodosLosOfferings(callback) {
     callback(todosLosOfferings);
   };
 
-  request.open("GET", "/items");
+  request.open("GET", "/shared-offerings");
   request.send();
 }
 
 // Quiz - quick pick? :v
-function pedirKillersFiltrados(type, filter, callback) {
+function pedirKillersFiltrados(type, callback) {
   let request = new XMLHttpRequest();
 
   request.onload = () => {
     let killersParseados = JSON.parse(request.responseText);
-    console.log(killersParseados);
+    callback(killersParseados)
   };
 
-  request.open("GET", "/killers?type=" + type + "&filter=" + filter);
+  request.open("GET", "/killers?type=" + type);
   request.send();
 }
+
+// 

@@ -111,6 +111,7 @@ const contenedorKillers = document.getElementById("killersContainer");
 
 // Añadimos un evento el cual nos trae los datos y creamos el botón que contiene al grupo
 // Events = Todo lo relacionado a listeners, eventos, hooks y demas
+
 miBotonKillers.addEventListener("click", () => {
   pedirTodosLosKillers(crearBotonesKillers);
 });
@@ -210,12 +211,98 @@ function cajaItem(nombreItem, imagenItem) {
   contenedorItems.appendChild(dirImgItem);
 }
 
+//////////////////////////////////////////////
+//          CONTENEDOR DE OFFERINGS         //
+//////////////////////////////////////////////
+
+// Guardamos nuestros elementos en variables
+
+let miBotonOffering = document.getElementById("offeringsBtn");
+const contenedorOffering = document.getElementById("offeringsContainer");
+
+// Añadimos un evento el cual nos trae los datos y creamos el botón que contiene al grupo
+// Events = Todo lo relacionado a listeners, eventos, hooks y demas
+miBotonOffering.addEventListener("click", () => {
+  pedirTodosLosOfferings(crearBotonesOfferings);
+});
+
+// DOM Manipulation = Recibo datos y los meto en el HTML
+function crearBotonesOfferings(datos) {
+  let arrayDeOfferings = datos;
+  offeringsContainer.innerHTML = "";
+
+  for (let i = 0; i < arrayDeOfferings.length; i++) {
+    cajaOffering(arrayDeOfferings[i].name, arrayDeOfferings[i].image);
+  }
+}
+
+// DOM Manipulation = Recibo datos y los meto en el HTML
+// Creamos un div para cada survivor junto con el nombre y la imagen
+
+function cajaOffering(nombreOffering, imagenOffering) {
+  // Se crea el div
+  let divOffering = document.createElement("div");
+  divOffering.setAttribute("class", "boton-offering");
+
+  // Se crea el div con el
+  let divNombreDeOffering = document.createElement("div");
+  divNombreDeOffering.setAttribute("class", "nombre-de-offering");
+  let texto = document.createTextNode(nombreOffering);
+
+  //Metemos el texto dentro del div
+  divOffering.appendChild(texto);
+  contenedorOffering.appendChild(divOffering);
+
+  // Creamos una imagen para cada killer
+  let dirImgOffering = document.createElement("img");
+
+  // Le asignamos una clase a la misma
+  dirImgOffering.setAttribute("class", "imgItem");
+  dirImgOffering.setAttribute("src", imagenOffering);
+  dirImgOffering.setAttribute("alt", nombreOffering);
+
+  // Metemos las imágenes en nuestro container
+  contenedorOffering.appendChild(dirImgOffering);
+}
+
 // //////////////////////////////////
 // //          QUICK PICK          //
 // //////////////////////////////////
 
-// const pickBtn = document.getElementById("quick-pick-btn");
+const trapButton = document.getElementById('trap-killers-filter')
+const stealthButton = document.getElementById('stealth-killers-filter')
+const knockdownButton = document.getElementById('knockdown-killers-filter')
+const mobilityButton = document.getElementById('mobility-killers-filter')
+const throwerButton = document.getElementById('thrower-killers-filter')
 
-// pickBtn.addEventListener("click", () => {
-//   console.log("working :v");
-// });
+const contenedorDeResultadoFilter = document.getElementById('resultado-tipo-killers')
+
+trapButton.addEventListener('click', () => {
+  pedirKillersFiltrados('TRAP', crearCajitasDelFiltro)
+})
+
+stealthButton.addEventListener('click', () => {
+  pedirKillersFiltrados('STEALTH', crearCajitasDelFiltro)
+})
+
+knockdownButton.addEventListener('click', () => {
+  pedirKillersFiltrados('KNOCKDOWN', crearCajitasDelFiltro)
+})
+
+mobilityButton.addEventListener('click', () => {
+  pedirKillersFiltrados('MOBILITY', crearCajitasDelFiltro)
+})
+
+throwerButton.addEventListener('click', () => {
+  pedirKillersFiltrados('THROWER', crearCajitasDelFiltro)
+})
+
+function crearCajitasDelFiltro(datos) {
+  console.log(datos)
+  // let arrayDeItems = datos;
+  // itemsContainer.innerHTML = "";
+
+  // for (let i = 0; i < arrayDeItems.length; i++) {
+  //   cajaItem(arrayDeItems[i].name, arrayDeItems[i].image);
+  // }
+}

@@ -81,15 +81,12 @@
         <p class="parrafo">Lorem ipsum...</p>
       </div>
 
-      <button class="boton-desplegable">
+      <button id="offeringsBtn" class="boton-desplegable">
         Offerings
       </button>
-      <div class="textoDesplegable">
-        <h2 class="subtitulo"></h2>
-        <p class="parrafo">Lorem ipsum...</p>
+      <div id="offeringsContainer" class="textoDesplegable">
       </div>
     </div>
-
     <!-- 2° PESTAÑA (QUICK PEEK) -> Trae la tabla principal: survivors / killers -->
 
     <div id="contenido-segundo-boton" class="buttonContent">
@@ -97,7 +94,7 @@
 
       <div class="survivorsOption">
         <button
-          onclick="expandirBoton()"
+          
           id="survivorsBtn"
           class="boton-desplegable"
         >
@@ -111,7 +108,7 @@
 
       <div class="killersOption">
         <button
-          onclick="expandirBoton()"
+          
           id="killersBtn"
           class="boton-desplegable"
         >
@@ -126,12 +123,17 @@
 
     <div id="contenido-tercer-boton" class="buttonContent">
       <h2>KILLER RECOMENDADO PARA VOS</h2>
-      <div class="preguntas">
-        <h2>Que tipo de asesino te gusta mas</h2>
-      </div>
+      <h2>Que tipo de asesino te gusta mas</h2>
+      
+      <button id="trap-killers-filter" class="killers-filter">TRAP</button>
+      <button id="stealth-killers-filter" class="killers-filter">STEALTH</button>
+      <button id="knockdown-killers-filter" class="killers-filter">KNOCKDOWN</button>
+      <button id="mobility-killers-filter" class="killers-filter">MOBILITY</button>
+      <button id="thrower-killers-filter" class="killers-filter">THROWER</button>
 
-      in
+      <div id="resultado-tipo-killers"></div>
     </div>
+    <!--  -->
 
     <!-- Scripts -->
 
